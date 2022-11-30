@@ -11,6 +11,6 @@ public class Login_pom {
    @FindBy(id="exampleInputPassword1")
    public static WebElement password;
    
-   @FindBy(xpath="//*[@id=\"root\"]/div[1]/div/div/div/div[2]/div/form/div[4]/button")
+   @FindBy(xpath="//button[@type=\"submit\"]")
    public static WebElement getstarted;
 }
