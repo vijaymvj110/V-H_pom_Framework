@@ -49,6 +49,10 @@ public class Candidate_tc extends CommonFunctions {
 		CandidateRegister_pom.Minorskill3.click();
 		CandidateRegister_pom.Education.sendKeys("M.Tech");
 		CandidateRegister_pom.DomainExpertise.sendKeys("Artificial Intelligence,Data science");
+		Thread.sleep(1000);
+		JavascriptExecutor executor5=(JavascriptExecutor)driver;
+		executor5.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");
+		Thread.sleep(1000);
 		Actions actions = new Actions(driver);
 		actions.dragAndDropBy(CandidateRegister_pom.RatingSlider, 150, 0).perform();
 		CandidateRegister_pom.CurrentCompany.sendKeys("Cognizant");
@@ -64,8 +68,8 @@ public class Candidate_tc extends CommonFunctions {
 		CandidateRegister_pom.ExpectedCTC.sendKeys("600000"); 
 		Select NoticePeriod=new Select(CandidateRegister_pom.NoticePeriod);
 		NoticePeriod.selectByVisibleText("1 Month");
-		JavascriptExecutor executor5=(JavascriptExecutor)driver;
-		executor5.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");
+		JavascriptExecutor executor6=(JavascriptExecutor)driver;
+		executor6.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");
 		Thread.sleep(1000);
 		CandidateRegister_pom.NextButton1.click();
 		Thread.sleep(2000);
@@ -83,7 +87,7 @@ public class Candidate_tc extends CommonFunctions {
 		Thread.sleep(4000);
 		CandidateRegister_pom.CertificateUpload.sendKeys("C:\\Users\\USER\\Downloads\\Testing\\CHJB1GAK2E.jpg");
 		testcase.log(Status.PASS,"Candidate certificates uploaded succesfully");
-		Thread.sleep(3000);
+		Thread.sleep(6000);
 		CandidateRegister_pom.CompleteButton.click();
 		Thread.sleep(2000);
 

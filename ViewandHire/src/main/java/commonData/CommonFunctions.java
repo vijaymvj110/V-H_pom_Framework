@@ -70,7 +70,7 @@ public class CommonFunctions {
 		driver.navigate().to(Url);
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	
-		 /*logger.info("Login to the application");
+		/* logger.info("Login to the application");
 		 PageFactory.initElements(driver,Login_pom.class);
 		 Login_pom.username.sendKeys(properties.getProperty("Username"));
 		 Login_pom.password.sendKeys(properties.getProperty("Password"));

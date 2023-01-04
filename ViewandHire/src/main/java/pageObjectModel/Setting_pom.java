@@ -46,8 +46,6 @@ public class Setting_pom {
 	public static WebElement AddSubSkillButton;
 	@FindBy(id="selectMajorSkill")
 	public static WebElement MajorSkillSelection;
-	@FindBy(id="MS-1C51MF2M5K")
-	public static WebElement MajorSkillSelected;
 	@FindBy(id="subSkillName")
 	public static WebElement EnterSubSkill;
 	@FindBy(xpath="/html/body/div[3]/div/div/div[2]/div/div[3]/div[1]/button")

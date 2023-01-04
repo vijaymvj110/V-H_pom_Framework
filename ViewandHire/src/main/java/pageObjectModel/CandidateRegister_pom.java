@@ -4,7 +4,7 @@ import org.openqa.selenium.support.FindBy;
 public class CandidateRegister_pom {
 	@FindBy(xpath="//*[@id=\"navbarNav\"]/ul/div/li[2]/a")
 	public static WebElement CandidateLink;
-	@FindBy(xpath="/html/body/div/div[2]/div/div/div/div/div[1]/div[1]/nav[2]/div/ul/li[1]/a")
+	@FindBy(xpath="/html/body/div/div[2]/div/div/div/div/div[1]/div[1]/nav[2]/div/ul/li[1]/span")
 	public static WebElement RegisterCandidate;
 	@FindBy(id="resumeTitle")
 	public static WebElement ResumeTitle;
@@ -80,6 +80,6 @@ public class CandidateRegister_pom {
 	public static WebElement profilePhoto;
 	@FindBy(xpath="//*[@id=\"root\"]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/div/div/div[1]/div/div[3]/div/div/span/input")
 	public static WebElement CertificateUpload;
-	@FindBy(xpath="//*[@id=\"root\"]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[3]/div/button[2]")
+	@FindBy(xpath="/html/body/div/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[3]/div/button[2]")
 	public static WebElement CompleteButton;
 }

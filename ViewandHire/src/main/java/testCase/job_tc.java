@@ -99,12 +99,12 @@ public class job_tc extends CommonFunctions{
 		JobRegister_pom.ManagerialHrsSelection.click();
 		JobRegister_pom.Select2Hrs.click();
 		JobRegister_pom.ManagerialMinutesSelection.click();
-		Thread.sleep(2000);
+		Thread.sleep(1000);
 		Actions actions1=new Actions(driver);
-		actions1.scrollToElement(JobRegister_pom.Minutes55);
+		actions1.scrollToElement(JobRegister_pom.Minutes20);
 		actions1.perform();
-		Thread.sleep(2000);
-		JobRegister_pom.Minutes50.click(); 
+		Thread.sleep(1000);
+		JobRegister_pom.Minutes20.click(); 
 		JobRegister_pom.ManagerialSave.click();
 		JobRegister_pom.ManagerialSavePopup.click();
 		Thread.sleep(2000);

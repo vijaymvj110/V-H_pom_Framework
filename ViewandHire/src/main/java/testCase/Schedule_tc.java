@@ -44,7 +44,7 @@ public class Schedule_tc extends CommonFunctions{
 		executor1.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		Schedule_pom.NextToInvite.click();
-		Schedule_pom.ScheduleTime.sendKeys("10202022104515AM");
+		Schedule_pom.ScheduleTime.sendKeys("01312023104515AM");
 		//Schedule_pom.AssignInterview.click();
 		
 		

@@ -53,8 +53,8 @@ public class Setting_tc extends CommonFunctions {
    Setting_pom.MajorSkillName.sendKeys("Automation Testing");
    Setting_pom.MajorSkillSave.click();
    Setting_pom.AddSubSkillButton.click();
-   Setting_pom.MajorSkillSelection.click();
-   Setting_pom.MajorSkillSelected.click();
+   Select majorSkillDropdown=new Select(Setting_pom.MajorSkillSelection);
+   majorSkillDropdown.selectByVisibleText("Database");
    Setting_pom.EnterSubSkill.sendKeys("MS SQL");
    Setting_pom.SaveSubSkill.click();
    testcase.log(Status.PASS,"Major and minor Skills registered succesfully");
