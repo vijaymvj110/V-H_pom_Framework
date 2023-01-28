@@ -24,7 +24,7 @@ public class Setting_pom {
 	public static WebElement Country;
 	@FindBy(id="zipCodeId")
 	public static WebElement Zipcode;
-	@FindBy(xpath="/html/body/div[3]/div/div/div[2]/div/div[8]/div[1]/button")
+	@FindBy(xpath="/html/body/div[3]/div/div/div[2]/div/div[7]/div[1]/button")
 	public static WebElement OrganizationSave;
 	@FindBy(xpath="//*[@id=\"myTabContent\"]/div/ul/div/li[2]/a")
 	public static WebElement JobCategory;
@@ -68,6 +68,8 @@ public class Setting_pom {
 	public static WebElement SelectDuration;
 	@FindBy(xpath="/html/body/div[3]/div/div/div[2]/div/div[4]/div[1]/button")
 	public static WebElement SaveQuestionsList;
+	@FindBy(xpath = "//*[@id=\"root\"]/div[2]/div/div/div/div/div[1]/div[1]/div/div/div[2]/div/div[2]/span[2]/button")
+	public static WebElement BackToQuestions;
 	@FindBy(xpath="//*[@id=\"myTabContent\"]/div/ul/div/li[5]/a")
 	public static WebElement UsersTab;
 	@FindBy(id="add")
@@ -78,6 +80,8 @@ public class Setting_pom {
 	public static WebElement UserLastName;
 	@FindBy(id="userNameId")
 	public static WebElement UserName;
+	@FindBy(id="mobileId")
+	public static WebElement MobileNumber;
 	@FindBy(id="roleId")
 	public static WebElement UserRole;
 	@FindBy(id="timeZoneId")

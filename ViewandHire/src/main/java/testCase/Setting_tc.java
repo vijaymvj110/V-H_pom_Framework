@@ -1,7 +1,9 @@
 package testCase;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
@@ -26,8 +28,18 @@ public class Setting_tc extends CommonFunctions {
     	Select select=new Select(Setting_pom.Country);
     	select.selectByIndex(1);
     	Setting_pom.Zipcode.sendKeys("600500");
+    	//JavascriptExecutor executor2=(JavascriptExecutor)driver;
+		//executor2.executeScript("window.scrollTo(0, document.body.scrollHeight)", "");
     	Setting_pom.OrganizationSave.click();
-    	testcase.log(Status.PASS,"Organization registered succesfully");
+    	String currentUrl1="https://dev.viewandhire.com/organizationList";
+    	String expectedUrl1=driver.getCurrentUrl();
+    	Thread.sleep(1000);
+    	if (currentUrl1.equalsIgnoreCase(expectedUrl1)) {
+    		testcase.log(Status.PASS,"Organization registered succesfully");
+    	}else {
+    		testcase.log(Status.FAIL,"Organization not registered");
+    	}
+        Assert.assertEquals(currentUrl1, expectedUrl1);
     	Thread.sleep(2000);
 	}
     @Test(priority = 2)
@@ -40,8 +52,16 @@ public class Setting_tc extends CommonFunctions {
     	 Setting_pom.JobCategoryName.sendKeys("Web Technologies");
     	 Thread.sleep(2000);
     	 Setting_pom.SaveJobCategory.click();
-    	 testcase.log(Status.PASS,"Job category registered succesfully");
-    	 Thread.sleep(2000);
+    	 String currentUrl1="https://dev.viewandhire.com/jobcategoryList";
+     	String expectedUrl1=driver.getCurrentUrl();
+     	Thread.sleep(1000);
+     	if (currentUrl1.equalsIgnoreCase(expectedUrl1)) {
+     		testcase.log(Status.PASS,"Job category registered succesfully");
+     	}else {
+     		testcase.log(Status.FAIL,"Job category not registered");
+     	}
+         Assert.assertEquals(currentUrl1, expectedUrl1);
+     	Thread.sleep(2000);
      }
     @Test(priority = 3)
      public void Skills() throws InterruptedException {
@@ -52,13 +72,23 @@ public class Setting_tc extends CommonFunctions {
    Setting_pom.AddMajorSkills.click();
    Setting_pom.MajorSkillName.sendKeys("Automation Testing");
    Setting_pom.MajorSkillSave.click();
+   Thread.sleep(1000);
    Setting_pom.AddSubSkillButton.click();
    Select majorSkillDropdown=new Select(Setting_pom.MajorSkillSelection);
    majorSkillDropdown.selectByVisibleText("Database");
    Setting_pom.EnterSubSkill.sendKeys("MS SQL");
    Setting_pom.SaveSubSkill.click();
-   testcase.log(Status.PASS,"Major and minor Skills registered succesfully");
-   Thread.sleep(2000);
+   Thread.sleep(1000);
+   String currentUrl1="https://dev.viewandhire.com/skillList";
+	String expectedUrl1=driver.getCurrentUrl();
+	Thread.sleep(1000);
+	if (currentUrl1.equalsIgnoreCase(expectedUrl1)) {
+		testcase.log(Status.PASS,"Major and Sub skills registered succesfully");
+	}else {
+		testcase.log(Status.FAIL,"Major and Sub skills not registered");
+	}
+   Assert.assertEquals(currentUrl1, expectedUrl1);
+	Thread.sleep(2000);
      }
     @Test(priority = 4)
     public void QuestionsBank() throws InterruptedException {
@@ -77,11 +107,21 @@ public class Setting_tc extends CommonFunctions {
     	Select SelectDuration=new Select(Setting_pom.SelectDuration);
     	SelectDuration.selectByVisibleText("3 Minutes");
     	Setting_pom.SaveQuestionsList.click();
-    	testcase.log(Status.PASS,"Questions & questions set registered succesfully");
+    	Setting_pom.BackToQuestions.click();
+    	Thread.sleep(1000);
+    	String currentUrl1="https://dev.viewandhire.com/questionList";
+    	String expectedUrl1=driver.getCurrentUrl();
+    	Thread.sleep(1000);
+    	if (currentUrl1.equalsIgnoreCase(expectedUrl1)) {
+    		testcase.log(Status.PASS,"Questions registered succesfully");
+    	}else {
+    		testcase.log(Status.FAIL,"Questions not registered");
+    	}
+        Assert.assertEquals(currentUrl1, expectedUrl1);
     	Thread.sleep(2000);
-    }
+	}
     @Test(priority = 5)
-    public void Users() {
+    public void Users() throws InterruptedException {
     	logger.info("Registeration of user");
     	testcase=extentReport.createTest("Open the User register");
     	PageFactory.initElements(driver, Setting_pom.class);
@@ -90,6 +130,7 @@ public class Setting_tc extends CommonFunctions {
     	Setting_pom.UserfirstName.sendKeys("Kavin");
     	Setting_pom.UserLastName.sendKeys("kumar");
     	Setting_pom.UserName.sendKeys("vijaymvj110m25@gmail.com");
+    	Setting_pom.MobileNumber.sendKeys("9988776655");
     	Select SelectRole=new Select(Setting_pom.UserRole);
     	SelectRole.selectByValue("HR");
     	Select SelectTimezone=new Select(Setting_pom.Timezone);
@@ -97,9 +138,18 @@ public class Setting_tc extends CommonFunctions {
     	Setting_pom.OrganizationForUser.click();
     	Setting_pom.SelectHP.click();
     	Setting_pom.SelectTCS.click();
-    	Setting_pom.OrganizationForUser2.click();
+    	Setting_pom.OrganizationForUser2.click(); 
     	Setting_pom.SaveUser.click();
-    	testcase.log(Status.PASS,"User created successfully");
+    	String currentUrl1="https://dev.viewandhire.com/userList";
+    	String expectedUrl1=driver.getCurrentUrl();
+    	Thread.sleep(1000);
+    	if (currentUrl1.equalsIgnoreCase(expectedUrl1)) {
+    		testcase.log(Status.PASS,"User registered succesfully");
+    	}else {
+    		testcase.log(Status.FAIL,"User not registered");
+    	}
+        Assert.assertEquals(currentUrl1, expectedUrl1);
+    	Thread.sleep(2000);
     	
     }
 }

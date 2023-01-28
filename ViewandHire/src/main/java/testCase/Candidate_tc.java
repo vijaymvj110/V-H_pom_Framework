@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
@@ -73,7 +74,7 @@ public class Candidate_tc extends CommonFunctions {
 		Thread.sleep(1000);
 		CandidateRegister_pom.NextButton1.click();
 		Thread.sleep(2000);
-		testcase.log(Status.PASS,"Candidate registered successfully");
+		testcase.log(Status.PASS,"Candidate details registered successfully");
 		CandidateRegister_pom.ResumeUpload.sendKeys("C:\\Users\\USER\\Downloads\\Testing\\L54FKK2BLM.pdf");
 		testcase.log(Status.PASS,"Candidate reume uploaded succesfully");
 		Thread.sleep(4000);
@@ -81,15 +82,22 @@ public class Candidate_tc extends CommonFunctions {
 		testcase.log(Status.PASS,"Candidate photo uploaded succesfully");
 		Thread.sleep(4000);
 		CandidateRegister_pom.CertificateUpload.sendKeys("C:\\Users\\USER\\Downloads\\Testing\\4B32JALI3L.jpeg");
-		CandidateRegister_pom.profilePhoto.sendKeys("C:\\Users\\USER\\Downloads\\Testing\\32N5AA1MJ5.jpeg");
 		Thread.sleep(4000);
 		CandidateRegister_pom.CertificateUpload.sendKeys("C:\\Users\\USER\\Downloads\\Testing\\E5I2BK3AKC.jpg");
 		Thread.sleep(4000);
 		CandidateRegister_pom.CertificateUpload.sendKeys("C:\\Users\\USER\\Downloads\\Testing\\CHJB1GAK2E.jpg");
 		testcase.log(Status.PASS,"Candidate certificates uploaded succesfully");
-		Thread.sleep(6000);
+		Thread.sleep(4000);
 		CandidateRegister_pom.CompleteButton.click();
 		Thread.sleep(2000);
-
+        String currentUrl="https://dev.viewandhire.com/candidateList";
+        String expectedUrl=driver.getCurrentUrl();
+        Thread.sleep(1000);
+        if (currentUrl.equalsIgnoreCase(expectedUrl)) {
+			testcase.log(Status.PASS,"Candidate Registered successfully");
+		}else {
+			testcase.log(Status.FAIL, "Candidate not registered");
+		}
+        Assert.assertEquals(currentUrl, expectedUrl);
 	}
 }

@@ -2,6 +2,9 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="ViewandHireProject">
   <test thread-count="5" name="ViewandHireTest"></test>
+  <listeners>
+  <listener class-name="testCase.TestListeners"></listener>
+  </listeners>
     <test name="Login page validation">
     <classes>
     <class name="testCase.Login_tc"></class>

@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.Status;
@@ -55,7 +56,7 @@ public class job_tc extends CommonFunctions{
 				+ "execute all levels of testing (System, Integration, and Regression)"
 				+ "Design and develop automation scripts when needed.");
 		JobRegister_pom.NextButton.click();
-		testcase.log(Status.PASS,"job registered successfully");
+		testcase.log(Status.PASS,"job Details registered successfully");
 		JobRegister_pom.RoundDropdown1.click();
 		JobRegister_pom.PreliminaryRound.click();
 		JobRegister_pom.SelectPreliminaryQuestion.click();
@@ -144,8 +145,7 @@ public class job_tc extends CommonFunctions{
 		JavascriptExecutor executor5=(JavascriptExecutor)driver;
 		executor5.executeScript("window.scrollTo(0, document.body.scrollHeight)",""); 
 		Thread.sleep(2000);
-
-		JobRegister_pom.Next1.click();
+        JobRegister_pom.Next1.click();
 		testcase.log(Status.PASS,"Interview rounds created");
 		JobRegister_pom.InterviewPanel1.click();
 		JobRegister_pom.InterviewPanel2.click();
@@ -156,8 +156,16 @@ public class job_tc extends CommonFunctions{
 		JobRegister_pom.CompleteButton.click();
 		testcase.log(Status.PASS,"Interview panel created for job ");
 		Thread.sleep(2000);
-
-
+        String currentUrl="https://dev.viewandhire.com/jobList";
+        String expectedUrl=driver.getCurrentUrl();
+        Thread.sleep(1000);
+        if (currentUrl.equalsIgnoreCase(expectedUrl)) {
+        	testcase.log(Status.PASS,"Job registered successfully");
+			System.out.println("Pass");
+			}else {
+				testcase.log(Status.FAIL,"Job not registered");
+			}
+        Assert.assertEquals(currentUrl, expectedUrl);
 
 		/*
 		 * String file="C:\\Users\\USER\\Downloads\\sample-zip-file.zip";
